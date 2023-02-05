@@ -1,17 +1,12 @@
 #include "map"
 
-namespace xrflc {
-
-struct StructInfo {
-  const char *StructName;
-  unsigned MemberCount;
-  StructInfo(const char *_structName);
-};
-
-StructInfo::StructInfo(const char *_structName) {
-  this->StructName = _structName;
-}
-
-};  // namespace xrflc
-
-#define XRFLC_RGST(STRUCT_NAME) xrflc::StructInfo R##STRUCT_NAME(#STRUCT_NAME);
+#define XRFLC_RGST(_STRUCT)          \
+  namespace xrflc {                  \
+  struct R##_STRUCT {                \
+    const char *TypeName = #_STRUCT; \
+  };                                 \
+  R##_STRUCT Load(_STRUCT _target) { \
+    R##_STRUCT result;               \
+    return result;                   \
+  }                                  \
+  };  // namespace xrflc
