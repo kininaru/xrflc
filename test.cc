@@ -8,7 +8,7 @@ XRFLC_RGST(Test)
 
 int main() {
   Test t;
-  auto result = xrflc::Load(t);
-  std::printf("%s\n", result.TypeName);
+  xrflc::Instance testInstance = xrflc::Load(t);
+  std::printf("%s\n", testInstance.TypeName);
   return 0;
 }
