@@ -1,8 +1,12 @@
+#include "./xrflc.h"
 #include "iostream"
 
-#include "./xrflc.h"
+struct Test {
+  int a;
+};
+XRFLC_RGST(Test)
 
 int main() {
-    std::printf("hello world\n");
-    return 0;
+  std::printf("%s\n", RTest.StructName);
+  return 0;
 }
